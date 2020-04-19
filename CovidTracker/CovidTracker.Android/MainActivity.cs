@@ -11,7 +11,7 @@ using Prism.Ioc;
 
 namespace CovidTracker.Droid
 {
-    [Activity(Label = "Covid-19 Tracker", Icon = "@mipmap/coronavirusLogo", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+    [Activity(Label = "Covid-19 Tracker", Icon = "@mipmap/coronavirusLogo", Theme = "@style/MyTheme.Splash", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         protected override void OnCreate(Bundle savedInstanceState)
@@ -19,6 +19,7 @@ namespace CovidTracker.Droid
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
 
+            SetTheme(Resource.Style.MainTheme);
             base.OnCreate(savedInstanceState);
             Window.SetStatusBarColor(Android.Graphics.Color.ParseColor("#827397"));
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
