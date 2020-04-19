@@ -13,6 +13,6 @@ namespace CovidTracker.Services
         Task<AllCases> GetAllCases();
 
         [Get("/corona.lmao.ninja/v2/countries?sort=country")]
-        Task<Countries> GetCountries();
+        Task<List<Country>> GetCountries();
     }
 }

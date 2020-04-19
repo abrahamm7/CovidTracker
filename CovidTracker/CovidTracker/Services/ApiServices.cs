@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -34,7 +35,7 @@ namespace CovidTracker.Services
                 return null;
             }
         }
-        public async Task<Countries> GetCountries()
+        public async Task <List<Country>> GetCountries()
         {
             try
             {
@@ -42,7 +43,8 @@ namespace CovidTracker.Services
                 {
                     HttpClient httpClient = new HttpClient();
                     var text = await httpClient.GetStringAsync("https://corona.lmao.ninja/v2/countries?sort=country");
-                    return JsonConvert.DeserializeObject<Countries>(text);
+                    return JsonConvert.DeserializeObject<List<Country>>(text);
+                     
                 }
                 else
                 {

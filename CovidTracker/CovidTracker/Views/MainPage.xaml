@@ -8,8 +8,16 @@
     xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
     mc:Ignorable="d">
 
-    <StackLayout>
-        <Grid>
+    <StackLayout BackgroundColor="#827397">
+        <StackLayout Padding="15">
+            <Image />
+            <Picker
+                Title="Select your country"
+                ItemDisplayBinding="{Binding country}"
+                ItemsSource="{Binding Countries}"
+                TitleColor="White" />
+        </StackLayout>
+        <Grid Padding="15">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
@@ -17,16 +25,15 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="200" />
                 <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             <yummy:PancakeView
-                Grid.Row="0"
-                Grid.RowSpan="1"
+                Grid.Row="2"
+                Grid.RowSpan="60"
                 Grid.Column="0"
                 Grid.ColumnSpan="2"
-                BackgroundColor="Accent"
-                CornerRadius="0,0,0,50">
-                <Label Text="{Binding AllCases.cases}" />
-            </yummy:PancakeView>
+                BackgroundColor="White"
+                CornerRadius="20" />
         </Grid>
     </StackLayout>
 
