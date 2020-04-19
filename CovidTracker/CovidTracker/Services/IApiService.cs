@@ -14,5 +14,8 @@ namespace CovidTracker.Services
 
         [Get("/corona.lmao.ninja/v2/countries?sort=country")]
         Task<List<Country>> GetCountries();
+
+        [Get("/corona.lmao.ninja/v2/countries/:country")]
+        Task<CountrySel> GetCountriesSelected(string param);
     }
 }
