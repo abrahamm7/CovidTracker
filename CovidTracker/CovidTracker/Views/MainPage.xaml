@@ -7,120 +7,141 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
     mc:Ignorable="d">
-
-    <StackLayout BackgroundColor="#827397">
-        <StackLayout Padding="15">
-            <Picker
-                Title="Select country"
-                ItemDisplayBinding="{Binding country}"
-                ItemsSource="{Binding Countries}"
-                SelectedItem="{Binding CountrySelected, Mode=TwoWay}"
-                TitleColor="White" />
-            <StackLayout>
-                <Label
-                    FontSize="20"
-                    Text="Global Cases"
-                    TextColor="White" />
-                <Label
-                    FontSize="20"
-                    Text="{Binding AllCases.cases}"
-                    TextColor="White" />
-                <Label
-                    FontSize="20"
-                    Text="Global Deaths"
-                    TextColor="White" />
-                <Label
-                    FontSize="20"
-                    Text="{Binding AllCases.deaths}"
-                    TextColor="White" />
-                <Label
-                    FontSize="20"
-                    Text="Global recovered"
-                    TextColor="White" />
-                <Label
-                    FontSize="20"
-                    Text="{Binding AllCases.recovered}"
-                    TextColor="White" />
-            </StackLayout>
-        </StackLayout>
-        <Grid Padding="15">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="200" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-            </Grid.RowDefinitions>
-            <yummy:PancakeView
-                Grid.Row="1"
-                Grid.RowSpan="60"
-                Grid.Column="0"
-                Grid.ColumnSpan="2"
-                BackgroundColor="White"
-                CornerRadius="20">
-                <StackLayout Spacing="20">
-                    <Grid
-                        Padding="25"
-                        HorizontalOptions="Center"
-                        RowSpacing="50">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="50" />
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*" />
-                            <RowDefinition Height="*" />
-                        </Grid.RowDefinitions>
+    <ScrollView>
+        <StackLayout BackgroundColor="#827397">
+            <StackLayout Padding="15" Spacing="25">
+                <Picker
+                    Title="Select country"
+                    ItemDisplayBinding="{Binding country}"
+                    ItemsSource="{Binding Countries}"
+                    SelectedItem="{Binding CountrySelected, Mode=TwoWay}"
+                    TextColor="White"
+                    TitleColor="White" />
+                <StackLayout
+                    HorizontalOptions="Center"
+                    Orientation="Horizontal"
+                    Spacing="35">
+                    <StackLayout HorizontalOptions="Center">
                         <Label
-                            Grid.Row="0"
-                            Grid.Column="0"
-                            FontSize="18"
-                            Text="Cases"
-                            TextColor="Black" />
+                            FontSize="15"
+                            Text="Global Cases"
+                            TextColor="White" />
                         <Label
-                            Grid.Row="0"
-                            Grid.Column="1"
-                            Text="{Binding CountrySel.cases}"
-                            TextColor="Black" />
+                            FontSize="15"
+                            HorizontalTextAlignment="Center"
+                            Text="{Binding AllCases.cases}"
+                            TextColor="White" />
+                    </StackLayout>
+                    <StackLayout HorizontalOptions="Center">
                         <Label
-                            Grid.Row="1"
-                            Grid.Column="0"
-                            FontSize="18"
-                            Text="Today cases"
-                            TextColor="Black" />
+                            FontSize="15"
+                            Text="Global Deaths"
+                            TextColor="White" />
                         <Label
-                            Grid.Row="1"
-                            Grid.Column="1"
-                            Text="{Binding CountrySel.todayCases}"
-                            TextColor="Black" />
+                            FontSize="15"
+                            HorizontalTextAlignment="Center"
+                            Text="{Binding AllCases.deaths}"
+                            TextColor="White" />
+                    </StackLayout>
+                    <StackLayout HorizontalOptions="Center">
                         <Label
-                            Grid.Row="2"
-                            Grid.Column="0"
-                            FontSize="18"
-                            Text="Deaths"
-                            TextColor="Black" />
+                            FontSize="15"
+                            Text="Global recovered"
+                            TextColor="White" />
                         <Label
-                            Grid.Row="2"
-                            Grid.Column="1"
-                            Text="{Binding CountrySel.deaths}"
-                            TextColor="Black" />
-                        <Label
-                            Grid.Row="3"
-                            Grid.Column="0"
-                            FontSize="18"
-                            Text="Recovered"
-                            TextColor="Black" />
-                        <Label
-                            Grid.Row="3"
-                            Grid.Column="1"
-                            Text="{Binding CountrySel.recovered}"
-                            TextColor="Black" />
-                    </Grid>
+                            FontSize="15"
+                            HorizontalTextAlignment="Center"
+                            Text="{Binding AllCases.recovered}"
+                            TextColor="White" />
+                    </StackLayout>
                 </StackLayout>
-            </yummy:PancakeView>
-        </Grid>
-    </StackLayout>
-
+                <Image Source="{Binding CountrySel.countryInfo.flag}" />
+            </StackLayout>
+            <Grid Padding="15">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40" />
+                </Grid.RowDefinitions>
+                <yummy:PancakeView
+                    Grid.Row="1"
+                    Grid.RowSpan="50"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    BackgroundColor="White"
+                    CornerRadius="20"
+                    VerticalOptions="End">
+                    <StackLayout Spacing="20">
+                        <Grid
+                            Padding="25"
+                            HorizontalOptions="Center"
+                            RowSpacing="20">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="50" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Label
+                                Grid.Row="0"
+                                Grid.Column="0"
+                                FontSize="18"
+                                Text="Cases"
+                                TextColor="Black" />
+                            <Label
+                                Grid.Row="0"
+                                Grid.Column="1"
+                                FontSize="12"
+                                Text="{Binding CountrySel.cases}"
+                                TextColor="Black"
+                                VerticalTextAlignment="Center" />
+                            <Label
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                FontSize="18"
+                                Text="Today cases"
+                                TextColor="Black" />
+                            <Label
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                FontSize="12"
+                                Text="{Binding CountrySel.todayCases}"
+                                TextColor="Black"
+                                VerticalTextAlignment="Center" />
+                            <Label
+                                Grid.Row="2"
+                                Grid.Column="0"
+                                FontSize="18"
+                                Text="Deaths"
+                                TextColor="Black" />
+                            <Label
+                                Grid.Row="2"
+                                Grid.Column="1"
+                                FontSize="12"
+                                Text="{Binding CountrySel.deaths}"
+                                TextColor="Black"
+                                VerticalTextAlignment="Center" />
+                            <Label
+                                Grid.Row="3"
+                                Grid.Column="0"
+                                FontSize="18"
+                                Text="Recovered"
+                                TextColor="Black" />
+                            <Label
+                                Grid.Row="3"
+                                Grid.Column="1"
+                                FontSize="12"
+                                Text="{Binding CountrySel.recovered}"
+                                TextColor="Black"
+                                VerticalTextAlignment="Center" />
+                        </Grid>
+                    </StackLayout>
+                </yummy:PancakeView>
+            </Grid>
+        </StackLayout>
+    </ScrollView>
 </ContentPage>
