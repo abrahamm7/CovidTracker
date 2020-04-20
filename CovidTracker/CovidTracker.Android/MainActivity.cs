@@ -8,6 +8,7 @@ using Android.Widget;
 using Android.OS;
 using Prism;
 using Prism.Ioc;
+using Android.Gms.Ads;
 
 namespace CovidTracker.Droid
 {
@@ -18,7 +19,7 @@ namespace CovidTracker.Droid
         {
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
-
+            MobileAds.Initialize(ApplicationContext, "ca-app-pub-6357818493292764~9581760526");
             SetTheme(Resource.Style.MainTheme);
             base.OnCreate(savedInstanceState);
             Window.SetStatusBarColor(Android.Graphics.Color.ParseColor("#827397"));

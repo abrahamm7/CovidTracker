@@ -1,6 +1,7 @@
 ﻿using CovidTracker.Helpers;
 using CovidTracker.Models;
 using Newtonsoft.Json;
+using Prism.Services;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -16,6 +17,11 @@ namespace CovidTracker.Services
     public class ApiServices : IApiService
     {
         Links Links;
+        IPageDialogService service;
+        public ApiServices(IPageDialogService pageDialogService)
+        {
+            service = pageDialogService;
+        }
         public async Task<AllCases> GetAllCases()
         {
             try
@@ -28,7 +34,7 @@ namespace CovidTracker.Services
                 }
                 else
                 {
-                    await App.Current.MainPage.DisplayAlert("Advice", "Not connection to internet", "Ok");
+                    await service.DisplayAlertAsync("", "Not connection to internet", "Ok");
                     return null;
                 }
             }
@@ -52,7 +58,7 @@ namespace CovidTracker.Services
                 }
                 else
                 {
-                    await App.Current.MainPage.DisplayAlert("", "Not connection to internet", "Ok");
+                    await service.DisplayAlertAsync("", "Not connection to internet", "Ok");
                     return null;
                 }
             }
@@ -75,7 +81,7 @@ namespace CovidTracker.Services
                 }
                 else
                 {
-                    await App.Current.MainPage.DisplayAlert("", "Not connection to internet", "Ok");
+                    await service.DisplayAlertAsync("", "Not connection to internet", "Ok");
                     return null;
                 }
             }
