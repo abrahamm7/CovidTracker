@@ -45,7 +45,7 @@ namespace CovidTracker.Droid
                 var ad = new AdView(Context)
                 {
                     AdSize = AdSize.SmartBanner,
-                    AdUnitId = "ca-app-pub-6357818493292764/4361864062"
+                    AdUnitId ="ca-app-pub-3940256099942544/6300978111"//"ca-app-pub-6357818493292764/4361864062"
                 };
 
                 var requestbuilder = new AdRequest.Builder();
