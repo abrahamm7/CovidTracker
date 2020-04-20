@@ -30,7 +30,7 @@
                         <Label
                             FontSize="15"
                             HorizontalTextAlignment="Center"
-                            Text="{Binding AllCases.cases}"
+                            Text="{Binding AllCases.cases, StringFormat='{0:n0}'}"
                             TextColor="White" />
                     </StackLayout>
                     <StackLayout HorizontalOptions="Center">
@@ -41,7 +41,7 @@
                         <Label
                             FontSize="15"
                             HorizontalTextAlignment="Center"
-                            Text="{Binding AllCases.deaths}"
+                            Text="{Binding AllCases.deaths, StringFormat='{0:n0}'}"
                             TextColor="White" />
                     </StackLayout>
                     <StackLayout HorizontalOptions="Center">
@@ -52,7 +52,7 @@
                         <Label
                             FontSize="15"
                             HorizontalTextAlignment="Center"
-                            Text="{Binding AllCases.recovered}"
+                            Text="{Binding AllCases.recovered, StringFormat='{0:n0}'}"
                             TextColor="White" />
                     </StackLayout>
                 </StackLayout>
@@ -104,7 +104,7 @@
                                 Grid.Row="0"
                                 Grid.Column="1"
                                 FontSize="12"
-                                Text="{Binding CountrySel.cases}"
+                                Text="{Binding CountrySel.cases, StringFormat='{0:n0}'}"
                                 TextColor="Black"
                                 VerticalTextAlignment="Center" />
                             <Label
@@ -117,7 +117,7 @@
                                 Grid.Row="1"
                                 Grid.Column="1"
                                 FontSize="12"
-                                Text="{Binding CountrySel.todayCases}"
+                                Text="{Binding CountrySel.todayCases, StringFormat='{0:n0}'}"
                                 TextColor="Black"
                                 VerticalTextAlignment="Center" />
                             <Label
@@ -130,7 +130,7 @@
                                 Grid.Row="2"
                                 Grid.Column="1"
                                 FontSize="12"
-                                Text="{Binding CountrySel.deaths}"
+                                Text="{Binding CountrySel.deaths, StringFormat='{0:n0}'}"
                                 TextColor="Black"
                                 VerticalTextAlignment="Center" />
                             <Label
@@ -143,7 +143,7 @@
                                 Grid.Row="3"
                                 Grid.Column="1"
                                 FontSize="12"
-                                Text="{Binding CountrySel.recovered}"
+                                Text="{Binding CountrySel.recovered, StringFormat='{0:n0}'}"
                                 TextColor="Black"
                                 VerticalTextAlignment="Center" />
                         </Grid>
