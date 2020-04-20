@@ -3,8 +3,10 @@ using CovidTracker.Services;
 using CovidTracker.ViewModels;
 using Prism;
 using Prism.Ioc;
+using Prism.Services;
 using Prism.Unity;
 using System;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 

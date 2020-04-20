@@ -26,10 +26,11 @@ namespace CovidTracker.Services
         {
             try
             {
+                Links = new Links();
                 if (Connectivity.NetworkAccess == NetworkAccess.Internet)
                 {                   
                     HttpClient httpClient = new HttpClient();                    
-                    var text = await httpClient.GetStringAsync("https://corona.lmao.ninja/v2/all");
+                    var text = await httpClient.GetStringAsync(Links.Linkall);
                     return JsonConvert.DeserializeObject<AllCases>(text);
                 }
                 else
@@ -46,9 +47,9 @@ namespace CovidTracker.Services
         }
         public async Task <List<Country>> GetCountries()
         {
-            Links = new Links();
             try
             {
+                Links = new Links();
                 if (Connectivity.NetworkAccess == NetworkAccess.Internet)
                 {
                     HttpClient httpClient = new HttpClient();                    
@@ -70,9 +71,10 @@ namespace CovidTracker.Services
         }
         public async Task<CountrySel> GetCountriesSelected(string param)
         {
-            Links = new Links(param);
+           
             try
             {
+                Links = new Links(param);
                 if (Connectivity.NetworkAccess == NetworkAccess.Internet)
                 {
                     HttpClient httpClient = new HttpClient();                         

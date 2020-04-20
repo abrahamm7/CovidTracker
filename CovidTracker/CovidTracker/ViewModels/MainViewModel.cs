@@ -8,8 +8,10 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Text;
 using System.Threading.Tasks;
+using Xamarin.Essentials;
 
 namespace CovidTracker.ViewModels
 {
@@ -21,6 +23,8 @@ namespace CovidTracker.ViewModels
         IPageDialogService service;
         public AllCases AllCases { get; set; } = new AllCases();
         Country CountrySele;
+        public bool State { get; set; }
+        public bool GridState { get; set; }
         public CountrySel CountrySel { get; set; } = new CountrySel();
         public ObservableCollection<CountrySel> listcountrySels { get; set; } = new ObservableCollection<CountrySel>();
         public ObservableCollection<Country> Countries { get; set; } = new ObservableCollection<Country>();
@@ -43,14 +47,16 @@ namespace CovidTracker.ViewModels
         {
             apiServices = api;
             service = page;
-            GetCases();
-            GetCountries(); 
+            GetCases();            
         }
 
         async Task GetCases()
         {
-            if (Xamarin.Essentials.Connectivity.NetworkAccess == Xamarin.Essentials.NetworkAccess.Internet)
+            if (Connectivity.NetworkAccess == NetworkAccess.Internet)
             {
+                GetCountries();
+                State = false;
+                GridState = true;
                 Links Links = new Links();
                 try
                 {
@@ -60,65 +66,51 @@ namespace CovidTracker.ViewModels
                 }
                 catch (Exception e)
                 {
-                    await App.Current.MainPage.DisplayAlert("", $"{e.Message}", "ok");
+                    Debug.WriteLine($"{e.Message}");
                 } 
             }
             else
             {
-                await service.DisplayAlertAsync("", "Not connection to internet", "Ok");
+                State = true;
+                GridState = false;
+                await service.DisplayAlertAsync("", "Not connection to internet", "ok");
             }
         }
         async Task GetCountries()
         {
-            if (Xamarin.Essentials.Connectivity.NetworkAccess == Xamarin.Essentials.NetworkAccess.Internet)
-            {
-                Links Links = new Links();
-                try
-                {
-                    RestService.For<IApiService>(Links.Url);
-                    var response1 = await apiServices.GetCountries();
-                    foreach (var item in response1)
-                    {
-                        this.Countries.Add(item);
-                    }
 
-                }
-                catch (Exception e)
-                {
-                    await App.Current.MainPage.DisplayAlert("", $"{e.Message}", "ok");
-                } 
-            }
-            else
+
+            Links Links = new Links();
+            try
             {
-                await service.DisplayAlertAsync("", "Not connection to internet", "Ok");
+                RestService.For<IApiService>(Links.Url);
+                var response1 = await apiServices.GetCountries();
+                foreach (var item in response1)
+                {
+                    this.Countries.Add(item);
+                }
+
             }
+            catch (Exception e)
+            {
+                Debug.WriteLine($"{e.Message}");
+            }
+
         }
         async Task GetCountries(string param)
         {
-            if (Xamarin.Essentials.Connectivity.NetworkAccess == Xamarin.Essentials.NetworkAccess.Internet)
+            Links Links = new Links(param);
+            try
             {
-                Links Links = new Links(param);
-                try
-                {
-                    RestService.For<IApiService>(Links.Url);
-                    var response1 = await apiServices.GetCountriesSelected(param);
-                    CountrySel = response1;
-                    listcountrySels.Add(CountrySel);
-                }
-                catch (Exception e)
-                {
-                    await App.Current.MainPage.DisplayAlert("", $"{e.Message}", "ok");
-                } 
+                RestService.For<IApiService>(Links.Url);
+                var response1 = await apiServices.GetCountriesSelected(param);
+                CountrySel = response1;
+                listcountrySels.Add(CountrySel);
             }
-            else
+            catch (Exception e)
             {
-                await service.DisplayAlertAsync("", "Not connection to internet", "Ok");
+                Debug.WriteLine($"{e.Message}");
             }
-        }
-
-        async void Message()
-        {
-            await service.DisplayAlertAsync("", "Not connection to internet", "Ok");
         }
     }
 }

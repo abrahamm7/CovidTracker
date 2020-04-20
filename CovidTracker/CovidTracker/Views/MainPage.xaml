@@ -57,8 +57,15 @@
                     </StackLayout>
                 </StackLayout>
                 <Image Source="{Binding CountrySel.countryInfo.flag}" />
+                <StackLayout HorizontalOptions="Center" IsVisible="{Binding State}">
+                    <Image Source="delete_80px.png" />
+                    <Label
+                        FontSize="20"
+                        Text="Not internet connection"
+                        TextColor="White" />
+                </StackLayout>
             </StackLayout>
-            <Grid Padding="15">
+            <Grid Padding="15" IsVisible="{Binding GridState}">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />

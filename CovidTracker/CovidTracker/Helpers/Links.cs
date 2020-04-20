@@ -8,6 +8,7 @@ namespace CovidTracker.Helpers
     public class Links
     {
         public string Url { get; set; }
+        public string Linkall { get; set; }
         public string LinkCountries { get; set; }
         public string LinkCountry { get; set; }
       
@@ -21,8 +22,8 @@ namespace CovidTracker.Helpers
         public Links()
         {
             Url = "https://corona.lmao.ninja/";
-            LinkCountries = "https://corona.lmao.ninja/v2/countries?sort=country";       
-           
+            LinkCountries = "https://corona.lmao.ninja/v2/countries?sort=country";
+            Linkall = "https://corona.lmao.ninja/v2/all";
         }
 
 
