@@ -150,7 +150,6 @@
                     </StackLayout>
                 </yummy:PancakeView>
             </Grid>
-            <controls:AdMobView VerticalOptions="End" />
         </StackLayout>
     </ScrollView>
 </ContentPage>
