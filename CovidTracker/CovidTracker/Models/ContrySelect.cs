@@ -29,7 +29,7 @@ namespace CovidTracker.Models
         public int active { get; set; }
         public int critical { get; set; }
         public int casesPerOneMillion { get; set; }
-        public int deathsPerOneMillion { get; set; }
+        public long deathsPerOneMillion { get; set; }
         public int tests { get; set; }
         public int testsPerOneMillion { get; set; }
         public string continent { get; set; }

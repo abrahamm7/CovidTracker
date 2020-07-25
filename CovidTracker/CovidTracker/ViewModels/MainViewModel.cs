@@ -46,7 +46,7 @@ namespace CovidTracker.ViewModels
         public MainViewModel(IApiService api, INavigationService navigationService, IPageDialogService page)
         {
             apiServices = api;
-            service = page;
+            service = page;            
             GetCases();            
         }
 

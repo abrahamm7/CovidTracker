@@ -32,7 +32,7 @@ namespace CovidTracker.Services
                 {                   
                     HttpClient httpClient = new HttpClient();                    
                     var text = await httpClient.GetStringAsync(Links.Linkall);
-                    return JsonConvert.DeserializeObject<AllCases>(text);
+                    return JsonConvert.DeserializeObject<AllCases>(text, new JsonSerializerSettings() { Culture = CultureInfo.InvariantCulture, FloatParseHandling = FloatParseHandling.Double });
                 }
                 else
                 {
@@ -55,7 +55,7 @@ namespace CovidTracker.Services
                 {
                     HttpClient httpClient = new HttpClient();                    
                     var text = await httpClient.GetStringAsync(Links.LinkCountries);
-                    return JsonConvert.DeserializeObject<List<Country>>(text);
+                    return JsonConvert.DeserializeObject<List<Country>>(text, new JsonSerializerSettings() { Culture = CultureInfo.InvariantCulture, FloatParseHandling = FloatParseHandling.Double });
                      
                 }
                 else
