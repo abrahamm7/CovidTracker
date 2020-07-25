@@ -9,6 +9,7 @@ using Android.OS;
 using Prism;
 using Prism.Ioc;
 using Android.Gms.Ads;
+using Sharpnado.Presentation.Forms.Droid;
 
 namespace CovidTracker.Droid
 {
@@ -19,11 +20,10 @@ namespace CovidTracker.Droid
         {
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
-            MobileAds.Initialize(ApplicationContext, "ca-app-pub-6357818493292764~9581760526");
             SetTheme(Resource.Style.MainTheme);
             base.OnCreate(savedInstanceState);
-            Window.SetStatusBarColor(Android.Graphics.Color.ParseColor("#827397"));
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
+            SharpnadoInitializer.Initialize();
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             LoadApplication(new App(new AndroidInitialize()));
         }

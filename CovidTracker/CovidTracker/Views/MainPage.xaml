@@ -5,20 +5,80 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:controls="clr-namespace:CovidTracker.Controls"
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:materialFrame="clr-namespace:Sharpnado.MaterialFrame;assembly=Sharpnado.MaterialFrame"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:renderedViews="clr-namespace:Sharpnado.Presentation.Forms.RenderedViews;assembly=Sharpnado.Presentation.Forms"
     xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    BackgroundColor="#FFFFFF"
     mc:Ignorable="d">
     <ScrollView>
-        <StackLayout BackgroundColor="#827397">
-            <StackLayout Padding="15" Spacing="25">
+        <StackLayout Padding="22" Spacing="15">
+            <materialFrame:MaterialFrame
+                CornerRadius="15"
+                Elevation="90"
+                LightThemeBackgroundColor="#F1F1F1"
+                MaterialBlurStyle="ExtraLight">
                 <Picker
                     Title="Select country"
                     ItemDisplayBinding="{Binding country}"
                     ItemsSource="{Binding Countries}"
                     SelectedItem="{Binding CountrySelected, Mode=TwoWay}"
-                    TextColor="White"
-                    TitleColor="White" />
-                <StackLayout
+                    TextColor="Black"
+                    TitleColor="Black"
+                    Visual="Material" />
+            </materialFrame:MaterialFrame>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <materialFrame:MaterialFrame
+                    Grid.Column="0"
+                    CornerRadius="15"
+                    Elevation="90"
+                    LightThemeBackgroundColor="#F1F1F1">
+                    <StackLayout>
+                        <Label
+                            FontSize="17"
+                            Text="Cases"
+                            TextColor="#000000" />
+                        <Label Text="{Binding AllCases.cases, StringFormat='{0:n0}'}" TextColor="#000000" />
+                    </StackLayout>
+                </materialFrame:MaterialFrame>
+                <materialFrame:MaterialFrame
+                    Grid.Column="1"
+                    CornerRadius="15"
+                    Elevation="90"
+                    LightThemeBackgroundColor="#F1F1F1">
+                    <StackLayout>
+                        <Label
+                            FontSize="17"
+                            Text="Deaths"
+                            TextColor="#000000" />
+                        <Label Text="{Binding AllCases.deaths, StringFormat='{0:n0}'}" TextColor="#000000" />
+                    </StackLayout>
+                </materialFrame:MaterialFrame>
+                <materialFrame:MaterialFrame
+                    Grid.Column="2"
+                    CornerRadius="15"
+                    Elevation="90"
+                    LightThemeBackgroundColor="#F1F1F1">
+                    <StackLayout>
+                        <Label
+                            FontSize="17"
+                            Text="Recovered"
+                            TextColor="#000000" />
+                        <Label Text="{Binding AllCases.recovered, StringFormat='{0:n0}'}" TextColor="#000000" />
+                    </StackLayout>
+                </materialFrame:MaterialFrame>
+
+
+                <!--<StackLayout
                     HorizontalOptions="Center"
                     Orientation="Horizontal"
                     Spacing="35">
@@ -63,9 +123,9 @@
                         FontSize="20"
                         Text="Not internet connection"
                         TextColor="White" />
-                </StackLayout>
-            </StackLayout>
-            <Grid Padding="15" IsVisible="{Binding GridState}">
+                </StackLayout>-->
+            </Grid>
+            <!--<Grid Padding="15" IsVisible="{Binding GridState}">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
@@ -149,7 +209,7 @@
                         </Grid>
                     </StackLayout>
                 </yummy:PancakeView>
-            </Grid>
+            </Grid>-->
         </StackLayout>
     </ScrollView>
 </ContentPage>
