@@ -8,7 +8,6 @@ using Android.Widget;
 using Android.OS;
 using Prism;
 using Prism.Ioc;
-using Android.Gms.Ads;
 using Sharpnado.Presentation.Forms.Droid;
 
 namespace CovidTracker.Droid
