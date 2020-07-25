@@ -18,3 +18,4 @@ Covid-19 tracker was built using the Xamarin Forms framework in conjuction with 
 * Newtonsoft.JSON
 * PropertChanged.Fody
 * API: https://corona.lmao.ninja/
+* Sharpnado.Frames
