@@ -9,10 +9,8 @@ Covid-19 tracker was built using the Xamarin Forms framework in conjuction with 
 
 ## Pictures from Phone
 
-<img src="CHINA.jpeg" width="50%">
-<img src="USA.jpeg" width="50%">
-<img src="RD.jpeg" width="50%">
-<img src="COUNTRIES.jpeg" width="50%">
+<img src="ScreenShot.jpeg" width="50%">
+
 
 ## Libraries and Dependencies
 * Xamarin.Forms
