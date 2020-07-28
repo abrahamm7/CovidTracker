@@ -130,39 +130,33 @@
                     <StackLayout Spacing="20">
                         <Image Margin="5,2,5,1" Source="{Binding CountrySel.countryInfo.flag}" />
                         <Label
-                            FontSize="15"
+                            FontAttributes="Bold"
+                            FontSize="18"
                             Text="Total de casos"
                             TextColor="#000000" />
-                        <BoxView
-                            BackgroundColor="#000000"
-                            HeightRequest="1"
-                            WidthRequest="5" />
+
                         <Label
                             FontSize="15"
                             Text="{Binding CountrySel.cases, StringFormat='{0:n0}'}"
                             TextColor="Black"
                             VerticalTextAlignment="Center" />
                         <Label
-                            FontSize="15"
+                            FontAttributes="Bold"
+                            FontSize="18"
                             Text="Casos nuevos"
                             TextColor="#000000" />
-                        <BoxView
-                            BackgroundColor="#000000"
-                            HeightRequest="1"
-                            WidthRequest="5" />
+
                         <Label
                             FontSize="15"
                             Text="{Binding CountrySel.todayCases, StringFormat='{0:n0}'}"
                             TextColor="Black"
                             VerticalTextAlignment="Center" />
                         <Label
-                            FontSize="15"
+                            FontAttributes="Bold"
+                            FontSize="18"
                             Text="Total de muertes"
                             TextColor="#000000" />
-                        <BoxView
-                            BackgroundColor="#000000"
-                            HeightRequest="1"
-                            WidthRequest="5" />
+
                         <Label
                             FontSize="15"
                             Text="{Binding CountrySel.deaths, StringFormat='{0:n0}'}"
