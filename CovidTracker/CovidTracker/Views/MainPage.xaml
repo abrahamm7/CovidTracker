@@ -15,12 +15,12 @@
         <StackLayout Spacing="10">
             <StackLayout
                 Padding="22"
-                BackgroundColor="#ee6c4d"
+                BackgroundColor="#35D073"
                 Spacing="13">
                 <materialFrame:MaterialFrame
                     CornerRadius="15"
                     Elevation="90"
-                    LightThemeBackgroundColor="#ee6c4d"
+                    LightThemeBackgroundColor="#35D073"
                     MaterialBlurStyle="ExtraLight">
                     <StackLayout>
                         <Label
@@ -46,7 +46,7 @@
                         Grid.ColumnSpan="1"
                         CornerRadius="15"
                         Elevation="90"
-                        LightThemeBackgroundColor="#ee6c4d">
+                        LightThemeBackgroundColor="#35D073">
                         <StackLayout>
                             <Label
                                 FontAttributes="Bold"
@@ -65,7 +65,7 @@
                         Grid.ColumnSpan="2"
                         CornerRadius="15"
                         Elevation="90"
-                        LightThemeBackgroundColor="#ee6c4d">
+                        LightThemeBackgroundColor="#35D073">
                         <StackLayout>
                             <Label
                                 FontAttributes="Bold"
@@ -85,7 +85,7 @@
                         Grid.ColumnSpan="3"
                         CornerRadius="15"
                         Elevation="90"
-                        LightThemeBackgroundColor="#ee6c4d">
+                        LightThemeBackgroundColor="#35D073">
                         <StackLayout>
                             <Label
                                 FontAttributes="Bold"
